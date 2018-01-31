@@ -7,3 +7,6 @@ css/bootstrap-grid.min.css
 css/bootstrap-reboot.css
 css/bootstrap-reboot.min.css
 css/bootstrap.min.css
+*.xml
+.idea/Projet-epicerie-cours-PHP.iml
+.idea/.name

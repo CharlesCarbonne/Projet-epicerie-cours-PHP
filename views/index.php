@@ -1,12 +1,15 @@
 <?php
-
+//use Entity\Product;
 include __DIR__ . '/partials/header.php'; ?>
 
 <div>
     <h1>Index!</h1>
-    <div class="table">
-    <table class="d-inline-block">
-        <thead>
+
+    <div>
+    </div>
+
+    <table class="table">
+        <thead class="thead-dark">
         <tr>
             <th>Nom</th>
             <th>Prix</th>
@@ -16,19 +19,24 @@ include __DIR__ . '/partials/header.php'; ?>
         </tr>
         </thead>
         <tbody>
+
         <?php
-        foreach ($produits as $produit): ?>
+         /**
+             * @var Entity\Product $produit
+             */
+        foreach ($productsToDisplay as $produit):
+            ?>
             <tr>
-                <td><?php echo $produit['nom']; ?></td>
-                <td><?= $produit['prix'] ?></td>
-                <td><?= $produit['type'] ?></td>
-                <td><?= getSaison($produit['mois_semis']) ?></td>
-                <td><?= getStock($produit['stock']) ?></td>
+                <td><?= $produit->getNom(); ?></td>
+                <td><?= $produit->getPrix();?></td>
+                <td><?= $produit->getType()->getNomType(); ?></td>
+                <td><?= getSaison($produit->getMoisSemis()); ?></td>
+                <td><?= getStock($produit->getStock()); ?></td>
             </tr>
-        <?php endforeach ?>
+            <?php
+        endforeach
+        ?>
         </tbody>
     </table>
-</div>
-</div>
 
 <?php include __DIR__ . '/partials/footer.php'; ?>
