@@ -1,13 +1,11 @@
 <?php
 $fruit = new \Entity\Type();
-$fruit->setNom('Fruit');
+$fruit->setId('1')->setNom('Fruit');
 $legume = new \Entity\Type();
-$legume->setNom('Legume');
+$legume->setId('2')->setNom('Legume');
 
-$typeTest1 = new \Entity\Type();
-$typeTest1->setNom('TypeTest1');
-$typeTest2 = new \Entity\Type();
-$typeTest2->setNom('TypeTest2');
+$boulangerie = new \Entity\Type();
+$boulangerie->setId('3')->setNom('Boulangerie');
 
 $pomme = new \Entity\Product('Pomme', '3,5', $fruit, 2, 4);
 $courgette = new \Entity\Product('Courgette', '3', $legume, 4, 10);
@@ -19,5 +17,10 @@ $produits = [
     2 => $carotte,
 ];
 
-$types = [$fruit, $legume, $typeTest1, $typeTest2];
+$tr = new TypeRepository();
+$types = $tr->getAll();
 
+$toto = new \Entity\User();
+$toto->setLogin('toto')->setPassword('titi');
+
+$usersList = [$toto];

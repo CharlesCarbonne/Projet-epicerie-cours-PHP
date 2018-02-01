@@ -1,10 +1,9 @@
 <?php
 //use Entity\Product;
-include __DIR__ . '/partials/header.php'; ?>
+include __DIR__ . '/partials/header.php';?>
 
 <div>
     <h1>Index!</h1>
-
     <div>
     </div>
 
@@ -30,8 +29,8 @@ include __DIR__ . '/partials/header.php'; ?>
                 <td><?= $produit->getNom(); ?></td>
                 <td><?= $produit->getPrix();?></td>
                 <td><?= $produit->getType()->getNomType(); ?></td>
-                <td><?= getSaison($produit->getMoisSemis()); ?></td>
-                <td><?= getStock($produit->getStock()); ?></td>
+                <td><?= $ps->getSaison($produit->getMoisSemis()); ?></td>
+                <td><?= $ps->getStock($produit->getStock()); ?></td>
             </tr>
             <?php
         endforeach

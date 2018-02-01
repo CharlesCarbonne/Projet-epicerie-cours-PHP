@@ -37,7 +37,6 @@
                             </li>
 
 
-
                             <div class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Selection type produit
@@ -71,6 +70,11 @@
                                        id="nom" placeholder="Nom d'un Article" aria-label="Search">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                             </form>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../disconnect.php">Deconnexion</a>
+                            </li>
+
                     </div>
                 </nav>
 

@@ -11,8 +11,6 @@ function getStock($stock){
     elseif($stock ==0){
         return "en attente de livraison";
     }
-
-
 }
 
 function getSaison($mois_semis){
