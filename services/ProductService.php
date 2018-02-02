@@ -4,6 +4,30 @@ use Entity\Product;
 
 class ProductService
 {
+    public function getById($id){
+        return \RepoFactory::createRepository(\RepoFactory::PRODUCT)->getById($id);
+    }
+
+    public function getAll(){
+        return \RepoFactory::createRepository(\RepoFactory::PRODUCT)->getAll();
+    }
+
+    public function create($object){
+        return \RepoFactory::createRepository(\RepoFactory::PRODUCT)->create($object);
+    }
+
+    public function update($object){
+        return \RepoFactory::createRepository(\RepoFactory::PRODUCT)->update($object);
+    }
+
+    public function delete($object){
+        return \RepoFactory::createRepository(\RepoFactory::PRODUCT)->delete($object);
+    }
+
+    public function getAllByTypeId($idType){
+        return \RepoFactory::createRepository(\RepoFactory::PRODUCT)->getAllByTypeId($idType);
+    }
+
     function getStock($stock){
         if($stock >= 5){
             return "produit en stock";

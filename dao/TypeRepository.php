@@ -1,18 +1,13 @@
 <?php
-include 'RepositoryInterface.php';
 
 class TypeRepository implements RepositoryInterface
 {
 
     private $mysqli;
 
-    public function __construct()
+    public function __construct($mysqli)
     {
-        $this->mysqli = new mysqli("localhost", "root", "", "epicerie");
-        if ($this->mysqli->connect_errno) {
-            printf("Connection failed: %s\n", $this->mysqli->connect_errno);
-            exit();
-        }
+        $this->mysqli = $mysqli;
     }
 
     public function getById($id)
@@ -26,10 +21,9 @@ class TypeRepository implements RepositoryInterface
             while ($row = $result->fetch_assoc()) {
                 $type->setId($row['idType'])->setNom($row['nomType']);
             }
-            return $type;
             $stmt->close();
         }
-        $this->mysqli->close();
+        return $type;
     }
 
     public function getAll()
@@ -44,10 +38,9 @@ class TypeRepository implements RepositoryInterface
                 $type->setId($row['idType'])->setNom($row['nomType']);
                 $listeTypes[] = $type;
             }
-            return $listeTypes;
             $stmt->close();
         }
-        $this->mysqli->close();
+        return $listeTypes;
     }
 
     public function create($object)
@@ -63,5 +56,10 @@ class TypeRepository implements RepositoryInterface
     public function delete($object)
     {
         // TODO: Implement delete() method.
+    }
+
+    public function getAllByTypeId($idType)
+    {
+        // TODO: Implement getAllByTypeId() method.
     }
 }

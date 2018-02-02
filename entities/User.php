@@ -12,8 +12,27 @@ namespace Entity;
 class User
 {
 
+    protected $id;
     protected $login;
     protected $password;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     * @return User
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     /**
      * @return mixed

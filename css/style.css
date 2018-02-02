@@ -1,0 +1,9 @@
+/* Hidden placeholder */
+select option[disabled]:first-child {
+    display: none;
+}
+
+.avatar{
+    width: 100px;
+    height: 100px;
+}

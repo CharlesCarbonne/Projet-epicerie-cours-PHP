@@ -4,19 +4,55 @@ namespace Entity {
     class Product
     {
 
+        protected $id;
         protected $nom;
         protected $prix;
         protected $type;
         protected $mois_semis;
         protected $stock;
+        protected $avatarName;
 
-        public function __construct($nom = null, $prix = null, $type = null, $mois_semis = null, $stock = null)
+        public function __construct($id = null, $nom = null, $prix = null, $type = null, $mois_semis = null, $stock = null, $avatarName = null)
         {
+            $this->id = $id;
             $this->nom = $nom;
             $this->prix = $prix;
             $this->type = $type;
             $this->mois_semis = $mois_semis;
             $this->stock = $stock;
+            $this->avatarName = $avatarName;
+        }
+
+        /**
+         * @return null
+         */
+        public function getAvatarName()
+        {
+            return $this->avatarName;
+        }
+
+        /**
+         * @param null $avatarName
+         * @return Product
+         */
+        public function setAvatarName($avatarName)
+        {
+            $this->avatarName = $avatarName;
+            return $this;
+        }
+
+        /**
+         * @return null
+         */
+        public function getId()
+        {
+            return $this->id;
+        }
+
+        public function setId($id)
+        {
+            $this->id = $id;
+            return $this;
         }
 
         /**
@@ -113,5 +149,8 @@ namespace Entity {
             $this->stock = $stock;
             return $this;
         }
+
+
+
     }
 }

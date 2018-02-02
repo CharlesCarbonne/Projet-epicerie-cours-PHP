@@ -4,21 +4,21 @@ include 'includes/checkLogin.php';
 
 $us = new \Service\UserService($usersList);
 $ps = new \Service\ProductService();
+$tr = RepoFactory::createRepository('type');
+$pr = RepoFactory::createRepository('product');
+
+
 
 $productsToDisplay = [];
 
 if (isset($_GET['type'])) {
-    $nomType = $_GET['type'];
-    if ($nomType == 'Legume') {
-        $productsToDisplay = getLegumes($produits);
-    } elseif ($nomType == 'Fruit') {
-        $productsToDisplay = getFruits($produits);
-    }
+    $idType = $_GET['type'];
+    $productsToDisplay = $pr->getAllByTypeId($idType);
 } else $productsToDisplay = $produits;
 
 if (isset($_POST['search']) && $_POST['search'] != null){
         $search = $_POST['search'];
-        $productsToDisplay = getProductFromNom($search, $produits);
+        $productsToDisplay = $ps->getProductFromNom($search, $produits);
 }
 
 include 'views/index.php';
